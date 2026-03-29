@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx:latest
+    container_name: external_cio_stitched
+    ports:
+      - "8080:80"  # 이 줄이 핵심입니다! (왼쪽이 윈도우 접속 포트)
+    volumes:
+      - ./:/usr/share/nginx/html
+    restart: always
