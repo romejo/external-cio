@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>조성민 | CIO (Chief Information Officer)</title>
+    <style>
+        :root { 
+            --primary-dark: #1a2a3a; 
+            --accent-blue: #3498db; 
+            --text-main: #334155; 
+            --bg-light: #f1f5f9; 
+            --border-color: #e2e8f0;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; margin: 0; padding: 0; }
+        
+        .container { width: 100%; max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; position: relative; }
+        
+        /* 헤더 디자인 */
+        .header { 
+            display: flex; 
+            flex-direction: row; 
+            align-items: center; 
+            padding: 40px; 
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3e50 100%); 
+            color: white; 
+            gap: 30px; 
+        }
+        .profile-img { 
+            width: 140px; 
+            height: 180px; 
+            border-radius: 10px; 
+            object-fit: cover; 
+            border: 3px solid rgba(255,255,255,0.2); 
+            flex-shrink: 0;
+            background-color: #eee;
+        }
+        .header-text h1 { margin: 0; font-size: 2.2em; font-weight: 800; }
+        .header-text p { margin: 5px 0; font-size: 1.1em; color: var(--accent-blue); font-weight: 600; }
+        .contact-mini { font-size: 0.9em; opacity: 0.8; margin-top: 10px; line-height: 1.4; }
+
+        .content { padding: 30px 40px; padding-bottom: 120px; }
+        h2 { font-size: 1.4em; color: var(--primary-dark); display: flex; align-items: center; margin-top: 45px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2::before { content: ""; display: inline-block; width: 4px; height: 20px; background: var(--accent-blue); margin-right: 12px; border-radius: 2px; }
+
+        .summary-box { background: #f8fafc; border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; font-size: 1em; border-left: 5px solid var(--accent-blue); margin-bottom: 30px; }
+
+        /* 경력 사항 */
+        .career-card { position: relative; padding-left: 25px; border-left: 2px solid var(--border-color); margin-bottom: 30px; }
+        .career-card::before { content: ""; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-blue); border: 2px solid white; }
+        .career-card .date { font-weight: 700; color: var(--accent-blue); font-size: 0.85em; }
+        .career-card h3 { margin: 5px 0; font-size: 1.15em; color: var(--primary-dark); }
+        .career-card .desc { margin: 5px 0; color: #475569; font-size: 0.95em; font-weight: 500; }
+
+        /* 프로젝트 리스트 */
+        .project-item { background: #ffffff; border: 1px solid #f1f5f9; padding: 15px; border-radius: 10px; margin-bottom: 12px; transition: transform 0.2s; }
+        .project-item:hover { border-color: var(--accent-blue); }
+        .project-title { font-weight: 700; color: var(--primary-dark); font-size: 0.95em; display: block; margin-bottom: 4px; }
+        .project-info { font-size: 0.85em; color: #64748b; line-height: 1.5; }
+        .project-tag { display: inline-block; font-size: 0.75em; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; margin-right: 5px; font-weight: 600; }
+
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-item { background: #fff; padding: 18px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 0.9em; }
+        .grid-item strong { color: var(--accent-blue); display: block; margin-bottom: 8px; font-size: 1.05em; }
+
+        .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .tag { background: #f1f5f9; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 600; color: #475569; border: 1px solid #e2e8f0; }
+
+        .footer-action { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 900px; padding: 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-top: 1px solid #e2e8f0; text-align: center; z-index: 100; }
+        .btn { background: var(--primary-dark); color: white; padding: 16px 0; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1.1em; display: block; width: 100%; max-width: 400px; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s; }
+        .btn:hover { background: #2c3e50; transform: translateY(-2px); }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .header-text h1 { font-size: 1.8em; }
+            .grid-container { grid-template-columns: 1fr; }
+            .content { padding: 20px; padding-bottom: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="photo.jpg" alt="조성민 프로필" class="profile-img">
+            <div class="header-text">
+                <h1>조성민</h1>
+                <p>CIO | IT Strategic Leader</p>
+                <div class="contact-mini">
+                    전 동아쏘시오그룹 IT 자회사 사업부문장 (상무)<br>
+                    인하대학교 물류전문대학원 MBA 석사<br>
+                    📧 smcho@example.com | 📱 010-XXXX-XXXX
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="summary-box">
+                27년간 개발, 운영, 기획, PM, CIO 역할을 두루 경험하며 IT를 경영 인프라로 설계하고 책임져 온 전사 IT 리더입니다. 그룹 전사 IT 거버넌스 수립과 130억 규모의 대형 ERP 구축 프로젝트를 성공적으로 완수한 실전형 전문가입니다.
+            </div>
+
+            <h2>Professional Experience</h2>
+            <div class="career-card">
+                <div class="date">2022.11 - 2025.11</div>
+                <h3>디에이인포메이션 사업부문장/상무 (CIO)</h3>
+                <p class="desc">그룹 DX/AX 과제 총괄 및 단계적 확산 체계 구축</p>
+                <div class="project-item">
+                    <span class="project-tag">DX 전략</span>
+                    <span class="project-title">그룹사 디지털 전환(DX) 마스터 플랜 수립</span>
+                    <span class="project-info">AI 및 클라우드 도입을 통한 제조/물류 현장 IT 고도화 및 단계적 확산 로드맵 수립</span>
+                </div>
+            </div>
+
+            <div class="career-card">
+                <div class="date">2015.01 - 2022.10</div>
+                <h3>동아쏘시오홀딩스 IT전략팀장/부장</h3>
+                <p class="desc">그룹 IT 거버넌스 및 대규모 시스템 통합 프로젝트 지휘</p>
+                <div class="project-item">
+                    <span class="project-tag">ERP/PM</span>
+                    <span class="project-title">4개 계열사 통합 차세대 ERP 구축 (130억 규모)</span>
+                    <span class="project-info">프로젝트 총괄 PM으로서 SAP ERP Big-Bang 도입 성공 및 업무 프로세스(PI) 표준화 완료</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-tag">인프라/보안</span>
+                    <span class="project-title">그룹 통합 데이터센터(IDC) 이전 및 클라우드 전환</span>
+                    <span class="project-info">물리적 IDC 통합 이전을 통한 운영 효율성 25% 개선 및 재난복구(DR) 체계 강화</span>
+                </div>
+            </div>
+
+            <div class="career-card">
+                <div class="date">1998.01 - 2014.12</div>
+                <h3>시스템 통합 및 운영 전문가</h3>
+                <p class="desc">기업용 솔루션 개발 및 물류/제조 시스템 운영 리딩</p>
+                <div class="project-item">
+                    <span class="project-tag">SCM/MES</span>
+                    <span class="project-title">제조실행시스템(MES) 및 공급망관리(SCM) 구축</span>
+                    <span class="project-info">공장 자동화 및 실시간 재고 관리 시스템 구축을 통한 물류 비용 절감 기여</span>
+                </div>
+            </div>
+
+            <h2>Key Value Proposition</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <strong>IT 거버넌스 & 전략</strong>
+                    지주사 전략팀과 IT 자회사를 모두 경험하며 비즈니스와 기술의 일치를 이끌어내는 역량
+                </div>
+                <div class="grid-item">
+                    <strong>리스크 관리 및 보안</strong>
+                    위기 상황 시 우선순위에 기반한 시스템 복구 지휘 및 전사적 보안 거버넌스 확립
+                </div>
+            </div>
+
+            <h2>Certifications & Skills</h2>
+            <div class="tag-group">
+                <span class="tag">CISA (정보시스템감사사)</span>
+                <span class="tag">PMP (프로젝트관리전문가)</span>
+                <span class="tag">정보시스템감리원</span>
+                <span class="tag">ISO 27001 심사원보</span>
+                <span class="tag">ERP/SCM/MES 전문</span>
+                <span class="tag">IT Governance</span>
+            </div>
+        </div>
+
+        <div class="footer-action">
+            <a href="#contact" class="btn">
+                📩 비즈니스 협업 및 상담 문의하기
+            </a>
+        </div>
+    </div>
+</body>
+</html>

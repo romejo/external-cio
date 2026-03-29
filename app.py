@@ -7,13 +7,12 @@ from datetime import datetime
 app = Flask(__name__, static_folder='.', template_folder='.')
 CORS(app)
 
-# DB 설정: Render 환경에서는 절대 경로를 사용하는 것이 안전합니다.
+# DB 파일 경로를 현재 실행 파일 위치로 절대 경로화 (가장 안전함)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'consulting.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# 상담 내역 DB 모델
 class Consultation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -21,23 +20,22 @@ class Consultation(db.Model):
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-# DB 테이블 생성
 with app.app_context():
     db.create_all()
 
-# 메인 페이지 접속 시 index.html 반환
 @app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
 
-# 정적 파일(이미지, CSS 등) 처리
-@app.route('/<path:path>')
-def send_static(path):
-    return send_from_directory('.', path)
+@app.route('/resume/')
+def resume_page():
+    return send_from_directory('resume', 'index.html')
 
-# 상담 저장 API
-@app.route('/api/consult', methods=['POST'])
+@app.route('/api/consult', methods=['POST', 'OPTIONS'])
 def save_consultation():
+    if request.method == 'OPTIONS':
+        return jsonify({"status": "ok"}), 200
+    
     data = request.json
     try:
         new_entry = Consultation(
@@ -49,9 +47,9 @@ def save_consultation():
         db.session.commit()
         return jsonify({"status": "success"}), 200
     except Exception as e:
+        print(f"Error: {e}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
-# 관리자 페이지
 @app.route('/admin_joy_secure_925_check')
 def admin_page():
     consultations = Consultation.query.order_by(Consultation.created_at.desc()).all()
@@ -62,6 +60,11 @@ def admin_page():
         html += f"<tr><td>{c.created_at.strftime('%Y-%m-%d %H:%M')}</td><td>{c.name}</td><td>{c.phone}</td><td>{c.message}</td></tr>"
     html += "</table></body></html>"
     return html
+
+# 기타 정적 파일 처리
+@app.route('/<path:path>')
+def send_static(path):
+    return send_from_directory('.', path)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

@@ -333,7 +333,7 @@ document.getElementById('consultForm').onsubmit = async (e) => {
 
     try {
         // 주소를 명확하게 127.0.0.1:5000으로 지정합니다.
-        const response = await fetch('http://127.0.0.1:5000/api/consult', {
+        const response = await fetch('/api/consult', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json' 
