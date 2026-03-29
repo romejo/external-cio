@@ -4,10 +4,8 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>EXTERNAL CIO | 27년 경력 IT 의사결정 파트너</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-    
     <style>
         :root {
             --primary: #9D4EDD;
@@ -15,186 +13,161 @@
             --accent: #A1FAFF;
             --bg-dark: #000000;
             --surface: #180720;
+            --surface-container: #1E0B27;
             --text-main: #F8DCFF;
         }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Manrope', sans-serif;
-            scroll-behavior: smooth;
-        }
-
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
         .font-space { font-family: 'Space Grotesk', sans-serif; }
-
-        .glass-nav {
-            background: rgba(24, 7, 32, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(85, 64, 93, 0.15);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #F8DCFF 0%, #C799FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-light);
-            color: #180720;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3);
-        }
-
-        .card {
-            background-color: var(--surface);
-            border: 1px solid rgba(85, 64, 93, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        input, textarea {
-            background: rgba(24, 7, 32, 0.5);
-            border: 1px solid rgba(85, 64, 93, 0.4);
-            color: var(--text-main);
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        #topBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 50px;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
+        .glass-nav { background: rgba(24, 7, 32, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(85, 64, 93, 0.15); }
+        .gradient-text { background: linear-gradient(135deg, #F8DCFF 0%, #C799FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-primary { background-color: var(--primary-light); color: #180720; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; justify-content: center; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3); }
+        .card { background-color: var(--surface); border: 1px solid rgba(85, 64, 93, 0.2); transition: all 0.3s ease; }
+        .card:hover { border-color: var(--primary); transform: translateY(-4px); }
+        .highlight-card { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(157, 78, 221, 0.15); }
+        input, textarea { background: rgba(24, 7, 32, 0.5); border: 1px solid rgba(85, 64, 93, 0.4); color: var(--text-main); }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(24, 7, 32, 0.8); }
+        .content-container { max-width: 1280px; margin: 0 auto; width: 100%; }
+        #topBtn { position: fixed; bottom: 30px; right: 30px; z-index: 99; background-color: var(--primary); color: white; cursor: pointer; padding: 12px 18px; border-radius: 50px; border: none; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4); transition: all 0.3s ease; opacity: 0; visibility: hidden; font-weight: bold; }
         #topBtn.show { opacity: 1; visibility: visible; }
     </style>
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function(){
-            emailjs.init("2qwzd1JnPiD06ZvmXwGmm"); // 선생님의 Public Key
-        })();
-    </script>	
+        (function(){ emailjs.init("2qwzd1JnPiD06ZvmXwGmm"); })();
+    </script>
 </head>
 <body>
 
 <header class="glass-nav fixed top-0 w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="content-container px-6 py-4 flex justify-between items-center">
         <div class="text-xl font-bold font-space tracking-tighter uppercase">EXTERNAL CIO</div>
         <div class="flex items-center gap-6">
-            <a href="./resume/index.html" class="hidden md:block text-sm font-medium hover:text-accent transition-colors">Resume</a>
+            <a href="https://gonabee.com/resume/" target="_blank" class="hidden md:block text-sm font-medium hover:text-accent transition-colors">Resume</a>
             <a class="btn-primary px-5 py-2 rounded-full text-sm font-bold" href="#contact">Contact</a>
         </div>
     </div>
 </header>
 
 <main class="pt-24">
-    <section class="px-6 py-20 text-center max-w-5xl mx-auto">
+    <section class="px-6 py-16 text-center content-container">
         <span class="text-accent text-xs font-bold tracking-widest uppercase mb-4 block">Strategic IT Advisory</span>
-        <h1 class="text-4xl md:text-6xl font-bold font-space leading-tight mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold font-space leading-tight mb-6">
             IT에 돈은 계속 쓰는데,<br/>
             <span class="gradient-text">왜 회사는 더 느려지고 있을까요?</span>
         </h1>
-        <p class="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
+        <p class="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
             투자 대비 성과가 보이지 않는 불투명한 IT 의사결정. 27년 경력의 외부 CIO가 비즈니스 관점에서 명쾌한 해답을 제시합니다.
         </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a class="btn-primary py-4 px-10 rounded-xl font-bold text-lg" href="#contact">
-                무료 진단 상담하기 →
+        <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto justify-center">
+            <a class="btn-primary py-4 px-8 rounded-xl font-bold text-lg flex items-center justify-center gap-2" href="#service">
+                무료 진단 상담하기 <span class="text-xl">→</span>
             </a>
-            <a class="bg-white/5 border border-white/10 py-4 px-10 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors" href="./resume/index.html">
+            <a class="bg-surface/50 border border-white/10 py-4 px-8 rounded-xl font-bold text-lg hover:bg-surface transition-colors" href="https://gonabee.com/resume/" target="_blank">
                 상세 이력 확인하기
             </a>
         </div>
+        <div class="mt-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <img alt="Future IT Strategy" class="w-full grayscale hover:grayscale-0 transition-all duration-700 object-cover max-h-[500px]" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1280"/>
+        </div>
     </section>
 
-    <section class="py-24 bg-gradient-to-b from-surface to-black" id="contact">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold font-space mb-4">전문가 상담 신청</h2>
-                <p class="text-white/60">작성하신 내용은 romejo@gmail.com으로 즉시 전달됩니다.</p>
+    <section class="px-6 py-20 content-container" id="service">
+        <h2 class="text-3xl font-bold font-space text-center mb-12">가볍게 시작하지만,<br/>결과는 명확합니다</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="card p-8 rounded-3xl relative overflow-hidden">
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Discovery</span>
+                <h3 class="text-2xl font-bold mb-4">IT 전략 진단</h3>
+                <p class="text-white/60 text-sm mb-6">현재의 IT 환경의 취약점과 개선 우선순위를 1회 집중 진단합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 시스템 현황 분석</li>
+                    <li class="flex items-center gap-2">✓ 핵심 개선 로드맵 제언</li>
+                </ul>
+                <a href="#contact" class="block text-center py-3 bg-white/5 rounded-xl font-bold border border-white/10">문의하기</a>
             </div>
-            
+            <div class="card p-8 rounded-3xl highlight-card relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase">Most Selected</div>
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Deep Dive</span>
+                <h3 class="text-2xl font-bold mb-4">구조 진단 리포트</h3>
+                <p class="text-white/60 text-sm mb-6">데이터, 인프라, 비용 구조를 심층 분석하여 정교한 기술 문서를 제공합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 데이터 거버넌스 정밀 진단</li>
+                    <li class="flex items-center gap-2">✓ TCO 최적화 방안</li>
+                </ul>
+                <a href="#contact" class="block text-center py-4 btn-primary rounded-xl font-bold w-full">상담 시작</a>
+            </div>
+            <div class="card p-8 rounded-3xl">
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Retainer</span>
+                <h3 class="text-2xl font-bold mb-4">외부 CIO 자문</h3>
+                <p class="text-white/60 text-sm mb-6">매월 정기적인 파트너십을 통해 IT 부서의 실질적인 리더십을 발휘합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 정기 IT 전략 회의 주관</li>
+                    <li class="flex items-center gap-2">✓ IT 조직 역량 강화 멘토링</li>
+                </ul>
+                <a href="#contact" class="block text-center py-3 bg-white/5 rounded-xl font-bold border border-white/10">문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-surface" id="contact">
+        <div class="content-container px-6 max-w-3xl">
+            <h2 class="text-3xl font-bold font-space mb-4 text-center">상담 신청</h2>
+            <p class="text-white/60 mb-10 text-center">전문가의 30분 상담이 수억 원의 비용 낭비를 막을 수 있습니다.</p>
             <form id="consultForm" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-bold uppercase mb-2 opacity-50">Name / Title</label>
-                        <input id="name" class="w-full p-4 rounded-xl" placeholder="성함과 직함" type="text" required/>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase mb-2 opacity-50">Phone</label>
-                        <input id="phone" class="w-full p-4 rounded-xl" placeholder="연락처" type="tel" required/>
-                    </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase mb-2 opacity-50">Name / Title</label>
+                    <input id="name" class="w-full p-4 rounded-xl" placeholder="성함과 직함을 입력해주세요" type="text" required/>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase mb-2 opacity-50">Phone</label>
+                    <input id="phone" class="w-full p-4 rounded-xl" placeholder="연락처를 입력해주세요" type="tel" required/>
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase mb-2 opacity-50">Message</label>
-                    <textarea id="message" class="w-full p-4 rounded-xl" placeholder="현재 고민 중인 IT 현안을 자유롭게 적어주세요." rows="5" required></textarea>
+                    <textarea id="message" class="w-full p-4 rounded-xl" placeholder="현재 겪고 계신 IT 고민을 자유롭게 적어주세요" rows="4" required></textarea>
                 </div>
-                <button type="submit" id="submitBtn" class="w-full py-5 btn-primary rounded-xl font-bold text-xl">상담 신청 완료</button>
+                <button type="submit" id="submitBtn" class="w-full py-4 btn-primary rounded-xl font-bold text-lg">상담 신청 완료</button>
             </form>
         </div>
     </section>
 </main>
 
-<footer class="py-16 text-center border-t border-white/5">
-    <div class="text-lg font-bold font-space tracking-tighter uppercase mb-4">EXTERNAL CIO</div>
-    <p class="text-[10px] text-white/30 uppercase tracking-[0.2em]">© 2026 EXTERNAL CIO. 27 YEARS OF STRATEGIC IT EXCELLENCE.</p>
+<footer class="py-12 text-center border-t border-white/5">
+    <div class="text-lg font-bold font-space tracking-tighter uppercase mb-6">EXTERNAL CIO</div>
+    <p class="text-[10px] text-white/30 uppercase tracking-[0.2em]">© 2026 EXTERNAL CIO. 27 YEARS OF EXCELLENCE.</p>
 </footer>
 
-<button id="topBtn">TOP ↑</button>
+<button id="topBtn" title="위로 이동">TOP ↑</button>
 
 <script>
-    // TOP 버튼 기능
+    // 1. Top 버튼
     const topBtn = document.getElementById("topBtn");
     window.onscroll = function() {
-        if (document.documentElement.scrollTop > 400) topBtn.classList.add("show");
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) topBtn.classList.add("show");
         else topBtn.classList.remove("show");
     };
     topBtn.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-    // EmailJS 전송 로직
+    // 2. EmailJS 전송 (Flask 대신 정적 호스팅 방식 적용)
     document.getElementById('consultForm').onsubmit = function(e) {
         e.preventDefault();
-        
         const btn = document.getElementById('submitBtn');
-        const originalText = btn.innerText;
-        
         btn.innerText = "전송 중...";
         btn.disabled = true;
 
-        const templateParams = {
+        emailjs.send('service_vkrcqon', 'template_n1fvs1b', {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
             message: document.getElementById('message').value
-        };
-
-        emailjs.send('service_vkrcqon', 'template_n1fvs1b', templateParams)
-            .then(function() {
-               alert('상담 신청이 romejo@gmail.com으로 안전하게 전달되었습니다. 확인 후 연락드리겠습니다.');
-               document.getElementById('consultForm').reset();
-            }, function(error) {
-               alert('전송 실패: ' + (error.text || '연결 상태를 확인해 주세요.'));
-            })
-            .finally(() => {
-               btn.innerText = originalText;
-               btn.disabled = false;
-            });
+        }).then(() => {
+            alert('상담 신청이 완료되었습니다. 조속히 연락드리겠습니다.');
+            document.getElementById('consultForm').reset();
+        }).catch((error) => {
+            alert('전송 실패: ' + JSON.stringify(error));
+        }).finally(() => {
+            btn.innerText = "상담 신청 완료";
+            btn.disabled = false;
+        });
     };
 </script>
-
 </body>
 </html>
