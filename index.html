@@ -141,7 +141,7 @@
 <main class="pt-24 max-container">
     <section class="px-6 py-16 text-center">
         <span class="text-accent text-xs font-bold tracking-widest uppercase mb-4 block">Strategic IT Advisory</span>
-        <h1 class="text-4xl md:text-5xl font-bold font-space leading-tight mb-6">
+        <h1 class="text-3xl md:text-4xl font-bold font-space leading-tight mb-6">
             IT에 돈은 계속 쓰는데,<br/>
             <span class="gradient-text">왜 회사는 더 느려지고 있을까요?</span>
         </h1>
@@ -374,14 +374,23 @@ window.onclick = function(event) {
         });
     };
 </script>
-<div id="resumeModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm">
-    <div class="relative w-full h-full max-w-4xl mx-auto flex flex-col">
-        <button onclick="closeResume()" class="absolute top-4 right-4 z-[110] text-white bg-white/10 p-2 rounded-full hover:bg-white/20">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <iframe src="./resume/index.html" id="resumeFrame" class="w-full h-full border-none"></iframe>
+
+<div id="resumeModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex justify-center items-center">
+    <div class="relative w-full h-[95vh] max-w-4xl mx-auto flex flex-col bg-white overflow-hidden rounded-t-2xl md:rounded-2xl">
+        
+        <div class="sticky top-0 right-0 w-full flex justify-end p-4 z-[110] bg-white/80 backdrop-blur-md border-b border-gray-100">
+            <button onclick="closeResume()" class="flex items-center gap-2 text-gray-500 hover:text-black transition-colors font-medium">
+                <span class="text-sm">닫기</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex-1 w-full overflow-auto">
+            <iframe src="./resume/index.html" id="resumeFrame" class="w-full h-full border-none"></iframe>
+        </div>
     </div>
 </div>
+
 </body></html>
