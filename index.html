@@ -122,11 +122,18 @@
 </button>
 
 <header class="glass-nav fixed top-0 w-full z-50">
-    <div class="max-container px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold font-space tracking-tighter uppercase">EXTERNAL CIO</a>
-        <div class="flex items-center gap-3 md:gap-6">
-            <a href="./resume/" class="hidden md:block text-sm font-medium hover:text-primary-light transition-colors uppercase tracking-wider">Expertise</a>
-            <a class="btn-primary px-5 py-2 rounded-full text-sm font-bold uppercase" href="#contact">Contact Us</a>
+    <div class="max-container px-4 py-4 flex justify-between items-center">
+        <a href="javascript:void(0)" onclick="openResume()" class="text-lg md:text-xl font-bold font-space tracking-tighter uppercase flex-shrink-0">
+            EXTERNAL CIO
+        </a>
+
+        <div class="flex items-center gap-2 md:gap-6">
+            <a href="javascript:void(0)" onclick="openResume()" class="cursor-pointer text-[11px] md:text-sm font-medium hover:text-primary-light transition-colors uppercase tracking-wider px-1">
+                Expertise
+            </a>
+            <a class="btn-primary px-3 md:px-5 py-2 rounded-full text-[11px] md:text-sm font-bold uppercase flex-shrink-0" href="#contact">
+                Contact Us
+            </a>
         </div>
     </div>
 </header>
@@ -201,7 +208,8 @@
     <section id="career" class="px-6 py-20 bg-gradient-to-b from-surface to-black rounded-3xl mb-10">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <h2 class="text-3xl font-bold font-space">27년, IT 의사결정 현장에서 검증된 경험</h2>
-            <a href="./resume/" class="text-primary-light text-sm font-bold border-b border-primary-light pb-1 hover:text-white hover:border-white transition-all">EXPLORE FULL JOURNEY →</a>
+            <a href="javascript:void(0)" onclick="openResume()" class="cursor-pointer text-primary-light text-sm font-bold border-b border-primary-light pb-1 hover:text-white hover:border-white transition-all uppercase">
+    Explore Full Journey →</a>
         </div>
         <div class="space-y-8 max-w-2xl">
             <div class="flex gap-6">
@@ -317,6 +325,23 @@
 </footer>
 
 <script>
+   //resume 팝업
+	function openResume() {
+    	   document.getElementById('resumeModal').classList.remove('hidden');
+    	   document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+	}
+
+	function closeResume() {
+    	   document.getElementById('resumeModal').classList.add('hidden');
+   	   document.body.style.overflow = 'auto'; // 스크롤 복구
+	}
+
+// 모달 바깥 클릭 시 닫기 (선택 사항)
+window.onclick = function(event) {
+    const modal = document.getElementById('resumeModal');
+    if (event.target == modal) closeResume();
+}
+
     // Top 버튼 표시 제어
     const topBtn = document.getElementById("topBtn");
     window.onscroll = function() {
@@ -349,4 +374,14 @@
         });
     };
 </script>
+<div id="resumeModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm">
+    <div class="relative w-full h-full max-w-4xl mx-auto flex flex-col">
+        <button onclick="closeResume()" class="absolute top-4 right-4 z-[110] text-white bg-white/10 p-2 rounded-full hover:bg-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <iframe src="./resume/index.html" id="resumeFrame" class="w-full h-full border-none"></iframe>
+    </div>
+</div>
 </body></html>
