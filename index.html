@@ -76,206 +76,264 @@
             border-color: var(--primary);
             background: rgba(24, 7, 32, 0.8);
         }
+
+        /* 세련된 Top 버튼 스타일 */
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            width: 50px;
+            height: 50px;
+            background: rgba(157, 78, 221, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(199, 153, 255, 0.3);
+            color: var(--primary-light);
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #topBtn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+        }
+
+        .max-container { max-width: 1000px; margin-left: auto; margin-right: auto; }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // 전달해주신 Public Key로 초기화
-            emailjs.init("cHio5BKHtkRmRCewJ");
+            emailjs.init("2qwzd1JnPiD06ZvmXwGmm");
         })();
     </script>
 </head>
 <body>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="topBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+</button>
+
 <header class="glass-nav fixed top-0 w-full z-50">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-<div class="text-xl font-bold font-space tracking-tighter uppercase">EXTERNAL CIO</div>
-<a class="btn-primary px-5 py-2 rounded-full text-sm font-bold" href="#contact">Contact</a>
-</div>
+    <div class="max-container px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-xl font-bold font-space tracking-tighter uppercase">EXTERNAL CIO</a>
+        <div class="flex items-center gap-6">
+            <a href="./resume/" class="hidden md:block text-sm font-medium hover:text-primary-light transition-colors uppercase tracking-wider">Expertise</a>
+            <a class="btn-primary px-5 py-2 rounded-full text-sm font-bold uppercase" href="#contact">Contact Us</a>
+        </div>
+    </div>
 </header>
-<main class="pt-24">
-<section class="px-6 py-16 text-center">
-<span class="text-accent text-xs font-bold tracking-widest uppercase mb-4 block">Strategic IT Advisory</span>
-<h1 class="text-4xl md:text-5xl font-bold font-space leading-tight mb-6">
-                IT에 돈은 계속 쓰는데,<br/>
-<span class="gradient-text">왜 회사는 더 느려지고 있을까요?</span>
-</h1>
-<p class="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
-                투자 대비 성과가 보이지 않는 불투명한 IT 의사결정. 27년 경력의 외부 CIO가 비즈니스 관점에서 명쾌한 해답을 제시합니다.
-            </p>
-<div class="flex flex-col gap-4">
-<a class="btn-primary py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2" href="#service">
-                    무료 진단 상담하기 <span class="text-xl">→</span>
-</a>
-<a class="bg-surface/50 border border-white/10 py-4 rounded-xl font-bold text-lg flex items-center justify-center" href="#service">
-                    서비스 상세 보기
-                </a>
-</div>
-<div class="mt-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-surface">
-<img alt="Future IT Strategy" class="w-full grayscale hover:grayscale-0 transition-all duration-700 object-cover max-h-[500px]" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1280"/>
-</div>
-</section>
-<section class="px-6 py-20 bg-surface/30">
-<h2 class="text-3xl font-bold font-space mb-4">이미 문제는 알고 계실 겁니다.</h2>
-<div class="grid gap-4 mt-8">
-<div class="card p-6 rounded-2xl flex gap-4 items-start">
-<span class="text-accent text-xl mt-1">●</span>
-<p class="text-white/80">도입 효과 없는 ERP: 수억을 들였지만 업무는 여전히 수작업이고 데이터는 파편화되어 있습니다.</p>
-</div>
-<div class="card p-6 rounded-2xl flex gap-4 items-start">
-<span class="text-accent text-xl mt-1">●</span>
-<p class="text-white/80">특정 인력/업체 의존성: 담당자가 퇴사하면 블랙박스가 되는 시스템, 벤더사에 휘둘리는 유지보수 비용.</p>
-</div>
-<div class="card p-6 rounded-2xl flex gap-4 items-start">
-<span class="text-accent text-xl mt-1">●</span>
-<p class="text-white/80">기술 판단 기준의 부재: 클라우드, AI... 어떤 것이 우리 비즈니스에 진짜 이득이 되는지 판단할 전문가가 없습니다.</p>
-</div>
-<div class="card p-6 rounded-2xl flex gap-4 items-start">
-<span class="text-accent text-xl mt-1">●</span>
-<p class="text-white/80">성과 관리의 불가능: IT 비용은 매년 늘어나는데, 이것이 영업이익에 어떻게 기여하는지 증명되지 않습니다.</p>
-</div>
-</div>
-</section>
-<section class="px-6 py-20 text-center">
-<h2 class="text-3xl font-bold font-space mb-6">어디서부터 풀어야 할지<br/>막막한 상태입니까?</h2>
-<p class="text-white/60 mb-12">External CIO는 단순 개발자가 아닌, '전략적 리더십'을 제공합니다.</p>
-<div class="grid md:grid-cols-3 gap-6">
-<div class="card p-8 rounded-3xl text-left">
-<div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center">
-<span class="text-2xl">📋</span>
-</div>
-<h3 class="text-xl font-bold mb-4">Technical Translator</h3>
-<p class="text-white/60 text-sm">현장의 파편화된 요구사항을 비즈니스 언어로 번역하여 명확한 전략적 로드맵을 수립합니다.</p>
-</div>
-<div class="card p-8 rounded-3xl text-left">
-<div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center">
-<span class="text-2xl">⚖️</span>
-</div>
-<h3 class="text-xl font-bold mb-4">ROI-Focused Judgment</h3>
-<p class="text-white/60 text-sm">트렌드에 휘둘리지 않고, 실제 기업의 수익성과 효율성을 기준으로 IT 투자를 검증합니다.</p>
-</div>
-<div class="card p-8 rounded-3xl text-left">
-<div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center">
-<span class="text-2xl">🏗️</span>
-</div>
-<h3 class="text-xl font-bold mb-4">Architecture Governance</h3>
-<p class="text-white/60 text-sm">누더기가 된 시스템 구조를 재설계하고, 지속 가능한 데이터 거버넌스 체계를 확립합니다.</p>
-</div>
-</div>
-</section>
-<section class="px-6 py-20 bg-gradient-to-b from-surface to-black">
-<h2 class="text-3xl font-bold font-space mb-12">27년, IT 의사결정 현장에서 검증된 경험</h2>
-<div class="space-y-8">
-<div class="flex gap-6">
-<div class="text-primary text-2xl">🏢</div>
-<div>
-<h4 class="font-bold mb-1">대규모 프로젝트 경험</h4>
-<p class="text-white/50 text-sm">대규모 엔터프라이즈 자원 관리 시스템 구축 및 프로세스 혁신 성공 사례 보유.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<div class="text-primary text-2xl">🛡️</div>
-<div>
-<h4 class="font-bold mb-1">IT 거버넌스 체계화</h4>
-<p class="text-white/50 text-sm">중견기업 맞춤형 IT 관리 프로세스 및 보안 규정 수립.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<div class="text-primary text-2xl">🔄</div>
-<div>
-<h4 class="font-bold mb-1">시스템 정상화 및 복구</h4>
-<p class="text-white/50 text-sm">실패한 IT 프로젝트의 원인 분석 및 긴급 복구를 통한 비즈니스 연속성 확보.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<div class="text-primary text-2xl">⚙️</div>
-<div>
-<h4 class="font-bold mb-1">생산/물류 지능화 (MES/SCM)</h4>
-<p class="text-white/50 text-sm">제조 현장의 디지털 트랜스포메이션을 위한 공급망 관리 시스템 고도화.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="px-6 py-20" id="service">
-<div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-<img alt="IT Strategy Team" class="w-full object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1280"/>
-</div><h2 class="text-3xl font-bold font-space text-center mb-12">가볍게 시작하지만,<br/>결과는 명확합니다</h2>
-<div class="space-y-6">
-<div class="card p-8 rounded-3xl relative overflow-hidden">
-<span class="text-xs font-bold text-accent uppercase mb-2 block">Discovery</span>
-<h3 class="text-2xl font-bold mb-4">IT 전략 진단</h3>
-<p class="text-white/60 text-sm mb-6">현재의 IT 환경의 취약점과 개선 우선순위를 1회 집중 진단합니다.</p>
-<ul class="space-y-3 mb-8 text-sm text-white/80">
-<li class="flex items-center gap-2">✓ 시스템 현황 분석</li>
-<li class="flex items-center gap-2">✓ 주요 페인포인트 도출</li>
-<li class="flex items-center gap-2">✓ 핵심 개선 로드맵 제언</li>
-</ul>
-<a href="#contact" class="block w-full py-3 bg-white/5 rounded-xl font-bold border border-white/10 text-center">문의하기</a>
-</div>
-<div class="card p-8 rounded-3xl highlight-card relative">
-<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase">Most Selected</div>
-<span class="text-xs font-bold text-accent uppercase mb-2 block">Deep Dive</span>
-<h3 class="text-2xl font-bold mb-4">구조 진단 리포트</h3>
-<p class="text-white/60 text-sm mb-6">데이터, 인프라, 비용 구조를 심층 분석하여 정교한 기술 문서를 제공합니다.</p>
-<ul class="space-y-3 mb-8 text-sm text-white/80">
-<li class="flex items-center gap-2">✓ 데이터 거버넌스 정밀 진단</li>
-<li class="flex items-center gap-2">✓ TCO (총소유비용) 최적화 방안</li>
-<li class="flex items-center gap-2">✓ 벤더사 평가 및 교체 전략</li>
-</ul>
-<a href="#contact" class="block w-full py-4 btn-primary rounded-xl font-bold text-center">상담 시작</a>
-</div>
-<div class="card p-8 rounded-3xl">
-<span class="text-xs font-bold text-accent uppercase mb-2 block">Retainer</span>
-<h3 class="text-2xl font-bold mb-4">외부 CIO 자문</h3>
-<p class="text-white/60 text-sm mb-6">매월 정기적인 파트너십을 통해 IT 부서의 실질적인 리더십을 발휘합니다.</p>
-<ul class="space-y-3 mb-8 text-sm text-white/80">
-<li class="flex items-center gap-2">✓ 정기 IT 전략 회의 주관</li>
-<li class="flex items-center gap-2">✓ 신규 프로젝트 의사결정 지원</li>
-<li class="flex items-center gap-2">✓ IT 조직 역량 강화 멘토링</li>
-</ul>
-<a href="#contact" class="block w-full py-3 bg-white/5 rounded-xl font-bold border border-white/10 text-center">문의하기</a>
-</div>
-</div>
-</section>
-<section class="px-6 py-20 bg-surface" id="contact">
-<h2 class="text-3xl font-bold font-space mb-4">더 이상 IT 문제로 시간을 낭비하지 마십시오.</h2>
-<p class="text-white/60 mb-10">전문가의 30분 상담이 수억 원의 비용 낭비를 막을 수 있습니다.</p>
-<form id="consultForm" class="space-y-6">
-<div>
-<label class="block text-xs font-bold uppercase mb-2 opacity-50">Name</label>
-<input id="from_name" name="from_name" class="w-full p-4 rounded-xl" placeholder="성함과 직함을 입력해주세요" type="text" required/>
-</div>
-<div>
-<label class="block text-xs font-bold uppercase mb-2 opacity-50">Phone</label>
-<input id="contact_number" name="contact_number" class="w-full p-4 rounded-xl" placeholder="연락처를 입력해주세요" type="tel" required/>
-</div>
-<div>
-<label class="block text-xs font-bold uppercase mb-2 opacity-50">Message</label>
-<textarea id="message" name="message" class="w-full p-4 rounded-xl" placeholder="현재 겪고 계신 IT 고민을 자유롭게 적어주세요" rows="4" required></textarea>
-</div>
-<button id="submitBtn" class="w-full py-4 btn-primary rounded-xl font-bold text-lg" type="submit">상담 신청 완료</button>
-</form>
-</section>
+
+<main class="pt-24 max-container">
+    <section class="px-6 py-16 text-center">
+        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-4 block">Strategic IT Advisory</span>
+        <h1 class="text-4xl md:text-5xl font-bold font-space leading-tight mb-6">
+            IT에 돈은 계속 쓰는데,<br/>
+            <span class="gradient-text">왜 회사는 더 느려지고 있을까요?</span>
+        </h1>
+        <p class="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
+            투자 대비 성과가 보이지 않는 불투명한 IT 의사결정. 27년 경력의 외부 CIO가 비즈니스 관점에서 명쾌한 해답을 제시합니다.
+        </p>
+        <div class="flex flex-col gap-4 max-w-sm mx-auto">
+            <a class="btn-primary py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2" href="#contact">
+                무료 진단 상담하기 <span class="text-xl">→</span>
+            </a>
+            <a class="bg-surface/50 border border-white/10 py-4 rounded-xl font-bold text-lg flex items-center justify-center" href="#service">
+                서비스 상세 보기
+            </a>
+        </div>
+        <div class="mt-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-surface">
+            <img alt="Future IT Strategy" class="w-full grayscale hover:grayscale-0 transition-all duration-700 object-cover max-h-[450px]" src="./images/hero-strategy.jpg"/>
+        </div>
+    </section>
+
+    <section class="px-6 py-20 bg-surface/30 rounded-3xl mb-10">
+        <h2 class="text-3xl font-bold font-space mb-4 text-center">이미 문제는 알고 계실 겁니다.</h2>
+        <div class="grid gap-4 mt-8">
+            <div class="card p-6 rounded-2xl flex gap-4 items-start">
+                <span class="text-accent text-xl mt-1">●</span>
+                <p class="text-white/80">도입 효과 없는 ERP: 수억을 들였지만 업무는 여전히 수작업이고 데이터는 파편화되어 있습니다.</p>
+            </div>
+            <div class="card p-6 rounded-2xl flex gap-4 items-start">
+                <span class="text-accent text-xl mt-1">●</span>
+                <p class="text-white/80">특정 인력/업체 의존성: 담당자가 퇴사하면 블랙박스가 되는 시스템, 벤더사에 휘둘리는 유지보수 비용.</p>
+            </div>
+            <div class="card p-6 rounded-2xl flex gap-4 items-start">
+                <span class="text-accent text-xl mt-1">●</span>
+                <p class="text-white/80">기술 판단 기준의 부재: 클라우드, AI... 어떤 것이 우리 비즈니스에 진짜 이득이 되는지 판단할 전문가가 없습니다.</p>
+            </div>
+            <div class="card p-6 rounded-2xl flex gap-4 items-start">
+                <span class="text-accent text-xl mt-1">●</span>
+                <p class="text-white/80">성과 관리의 불가능: IT 비용은 매년 늘어나는데, 이것이 영업이익에 어떻게 기여하는지 증명되지 않습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-20 text-center">
+        <h2 class="text-3xl font-bold font-space mb-6">어디서부터 풀어야 할지<br/>막막한 상태입니까?</h2>
+        <p class="text-white/60 mb-12">External CIO는 단순 개발자가 아닌, '전략적 리더십'을 제공합니다.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="card p-8 rounded-3xl text-left">
+                <div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center"><span class="text-2xl">📋</span></div>
+                <h3 class="text-xl font-bold mb-4">Technical Translator</h3>
+                <p class="text-white/60 text-sm">현장의 파편화된 요구사항을 비즈니스 언어로 번역하여 명확한 전략적 로드맵을 수립합니다.</p>
+            </div>
+            <div class="card p-8 rounded-3xl text-left">
+                <div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center"><span class="text-2xl">⚖️</span></div>
+                <h3 class="text-xl font-bold mb-4">ROI-Focused Judgment</h3>
+                <p class="text-white/60 text-sm">트렌드에 휘둘리지 않고, 실제 기업의 수익성과 효율성을 기준으로 IT 투자를 검증합니다.</p>
+            </div>
+            <div class="card p-8 rounded-3xl text-left">
+                <div class="w-12 h-12 bg-primary/20 rounded-xl mb-6 flex items-center justify-center"><span class="text-2xl">🏗️</span></div>
+                <h3 class="text-xl font-bold mb-4">Architecture Governance</h3>
+                <p class="text-white/60 text-sm">누더기가 된 시스템 구조를 재설계하고, 지속 가능한 데이터 거버넌스 체계를 확립합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="career" class="px-6 py-20 bg-gradient-to-b from-surface to-black rounded-3xl mb-10">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <h2 class="text-3xl font-bold font-space">27년, IT 의사결정 현장에서 검증된 경험</h2>
+            <a href="./resume/" class="text-primary-light text-sm font-bold border-b border-primary-light pb-1 hover:text-white hover:border-white transition-all">EXPLORE FULL JOURNEY →</a>
+        </div>
+        <div class="space-y-8 max-w-2xl">
+            <div class="flex gap-6">
+                <div class="text-primary text-2xl">🏢</div>
+                <div>
+                    <h4 class="font-bold mb-1">대규모 프로젝트 경험</h4>
+                    <p class="text-white/50 text-sm">대규모 엔터프라이즈 자원 관리 시스템 구축 및 프로세스 혁신 성공 사례 보유.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-primary text-2xl">🛡️</div>
+                <div>
+                    <h4 class="font-bold mb-1">IT 거버넌스 체계화</h4>
+                    <p class="text-white/50 text-sm">중견기업 맞춤형 IT 관리 프로세스 및 보안 규정 수립.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-primary text-2xl">🔄</div>
+                <div>
+                    <h4 class="font-bold mb-1">시스템 정상화 및 복구</h4>
+                    <p class="text-white/50 text-sm">실패한 IT 프로젝트의 원인 분석 및 긴급 복구를 통한 비즈니스 연속성 확보.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-primary text-2xl">⚙️</div>
+                <div>
+                    <h4 class="font-bold mb-1">생산/물류 지능화 (MES/SCM)</h4>
+                    <p class="text-white/50 text-sm">제조 현장의 디지털 트랜스포메이션을 위한 공급망 관리 시스템 고도화.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                 <div class="text-primary text-2xl">🤖</div>
+                 <div>
+                     <h4 class="font-bold mb-1">AI 기반 업무 혁신 (AX) 및 자동화</h4>
+                     <p class="text-white/50 text-sm">AI 기술을 실무 워크플로우에 결합하여 단순 반복 업무를 제거하고, 핵심 인력이 전략적 업무에 집중할 수 있는 지능형 조직을 설계합니다.</p>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-20" id="service">
+        <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
+            <img alt="IT Strategy Team" class="w-full object-cover max-h-[350px]" src="./images/strategy-team.jpg"/>
+        </div>
+        <h2 class="text-3xl font-bold font-space text-center mb-12">가볍게 시작하지만,<br/>결과는 명확합니다</h2>
+        <div class="space-y-6 max-w-2xl mx-auto">
+            <div class="card p-8 rounded-3xl relative overflow-hidden">
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Discovery</span>
+                <h3 class="text-2xl font-bold mb-4">IT 전략 진단</h3>
+                <p class="text-white/60 text-sm mb-6">현재의 IT 환경의 취약점과 개선 우선순위를 1회 집중 진단합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 시스템 현황 분석</li>
+                    <li class="flex items-center gap-2">✓ 주요 페인포인트 도출</li>
+                    <li class="flex items-center gap-2">✓ 핵심 개선 로드맵 제언</li>
+                </ul>
+                <a href="#contact" class="block w-full py-3 bg-white/5 rounded-xl font-bold border border-white/10 text-center">문의하기</a>
+            </div>
+            <div class="card p-8 rounded-3xl highlight-card relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase">Most Selected</div>
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Deep Dive</span>
+                <h3 class="text-2xl font-bold mb-4">구조 진단 리포트</h3>
+                <p class="text-white/60 text-sm mb-6">데이터, 인프라, 비용 구조를 심층 분석하여 정교한 기술 문서를 제공합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 데이터 거버넌스 정밀 진단</li>
+                    <li class="flex items-center gap-2">✓ TCO (총소유비용) 최적화 방안</li>
+                    <li class="flex items-center gap-2">✓ 벤더사 평가 및 교체 전략</li>
+                </ul>
+                <a href="#contact" class="block w-full py-4 btn-primary rounded-xl font-bold text-center">상담 시작</a>
+            </div>
+            <div class="card p-8 rounded-3xl">
+                <span class="text-xs font-bold text-accent uppercase mb-2 block">Retainer</span>
+                <h3 class="text-2xl font-bold mb-4">외부 CIO 자문</h3>
+                <p class="text-white/60 text-sm mb-6">매월 정기적인 파트너십을 통해 IT 부서의 실질적인 리더십을 발휘합니다.</p>
+                <ul class="space-y-3 mb-8 text-sm text-white/80">
+                    <li class="flex items-center gap-2">✓ 정기 IT 전략 회의 주관</li>
+                    <li class="flex items-center gap-2">✓ 신규 프로젝트 의사결정 지원</li>
+                    <li class="flex items-center gap-2">✓ IT 조직 역량 강화 멘토링</li>
+                </ul>
+                <a href="#contact" class="block w-full py-3 bg-white/5 rounded-xl font-bold border border-white/10 text-center">문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-20 bg-surface rounded-3xl mb-20" id="contact">
+        <h2 class="text-3xl font-bold font-space mb-4 text-center">더 이상 IT 문제로 시간을 낭비하지 마십시오.</h2>
+        <p class="text-white/60 mb-10 text-center">전문가의 30분 상담이 수억 원의 비용 낭비를 막을 수 있습니다.</p>
+        <form id="consultForm" class="space-y-6 max-w-lg mx-auto">
+            <div>
+                <label class="block text-xs font-bold uppercase mb-2 opacity-50">Name</label>
+                <input id="from_name" name="from_name" class="w-full p-4 rounded-xl" placeholder="성함과 직함을 입력해주세요" type="text" required/>
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase mb-2 opacity-50">Phone</label>
+                <input id="contact_number" name="contact_number" class="w-full p-4 rounded-xl" placeholder="연락처를 입력해주세요" type="tel" required/>
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase mb-2 opacity-50">Message</label>
+                <textarea id="message" name="message" class="w-full p-4 rounded-xl" placeholder="현재 겪고 계신 IT 고민을 자유롭게 적어주세요" rows="4" required></textarea>
+            </div>
+            <button id="submitBtn" class="w-full py-4 btn-primary rounded-xl font-bold text-lg" type="submit">상담 신청 완료</button>
+        </form>
+    </section>
 </main>
-<footer class="px-6 py-12 text-center border-t border-white/5">
-<div class="text-lg font-bold font-space tracking-tighter uppercase mb-6">EXTERNAL CIO</div>
-<p class="text-[10px] text-white/30 uppercase tracking-[0.2em] mb-8">© 2026 EXTERNAL CIO. 27 YEARS OF STRATEGIC IT EXCELLENCE.</p>
-<div class="flex justify-center gap-8 text-[10px] font-bold text-white/50 uppercase tracking-widest">
-<a href="#">Advisory</a>
-<a href="#">Infrastructure</a>
-<a href="#">Cybersecurity</a>
-</div>
+
+<footer class="px-6 py-12 text-center border-t border-white/5 max-container">
+    <div class="text-lg font-bold font-space tracking-tighter uppercase mb-6">EXTERNAL CIO</div>
+    <p class="text-[10px] text-white/30 uppercase tracking-[0.2em] mb-8">© 2026 EXTERNAL CIO. 27 YEARS OF STRATEGIC IT EXCELLENCE.</p>
+    <div class="flex justify-center gap-8 text-[10px] font-bold text-white/50 uppercase tracking-widest">
+        <a href="#">Advisory</a>
+        <a href="#">Infrastructure</a>
+        <a href="#">Cybersecurity</a>
+    </div>
 </footer>
 
 <script>
+    // Top 버튼 표시 제어
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            topBtn.style.display = "flex";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+
     // 폼 전송 스크립트
     document.getElementById('consultForm').onsubmit = function(e) {
         e.preventDefault();
-        
         const btn = document.getElementById('submitBtn');
         btn.innerText = "전송 중...";
         btn.disabled = true;
 
-        // 전달해주신 정보를 바탕으로 수정됨
         emailjs.send('service_vkrcqon', 'template_n1fvs1b', {
             from_name: document.getElementById('from_name').value,
             contact_number: document.getElementById('contact_number').value,
