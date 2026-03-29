@@ -1,15 +1,15 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from datetime import datetime
-import os
 
-app = Flask(__name__)
-CORS(app) # 브라우저 차단 방지(CORS 허용)
+app = Flask(__name__, static_folder='.', template_folder='.')
+CORS(app)
 
-# DB 설정: 현재 폴더에 consulting.db 파일 생성
-db_path = os.path.join(os.path.dirname(__file__), 'consulting.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+# DB 설정: Render 환경에서는 절대 경로를 사용하는 것이 안전합니다.
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'consulting.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -24,6 +24,16 @@ class Consultation(db.Model):
 # DB 테이블 생성
 with app.app_context():
     db.create_all()
+
+# 메인 페이지 접속 시 index.html 반환
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
+
+# 정적 파일(이미지, CSS 등) 처리
+@app.route('/<path:path>')
+def send_static(path):
+    return send_from_directory('.', path)
 
 # 상담 저장 API
 @app.route('/api/consult', methods=['POST'])
